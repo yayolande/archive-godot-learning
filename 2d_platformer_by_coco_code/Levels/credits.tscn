@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs2t3cxi08nhj"]
+
+[ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_n1pkx"]
+[ext_resource type="Texture2D" uid="uid://dvynurqo5106m" path="res://assets/Background/Pink.png" id="2_3srmf"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n1pkx")
+first_level_path = &"res://Levels/level_1.tscn"
+credit_scene_path = &"res://Levels/credits.tscn"
+main_menu_scene_path = &"res://Levels/main_menu.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3srmf")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -281.0
+offset_right = 234.5
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -179.5
+offset_right = 212.0
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="Congratulation" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_font_sizes/font_size = 40
+text = "Congratulation, You BEAT the game !!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Developer" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.831373, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_font_sizes/font_size = 40
+text = "Made by Steve Djumo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Continue" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
